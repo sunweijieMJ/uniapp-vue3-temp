@@ -1,0 +1,7 @@
+{
+  "api.fail": "fail",
+  "api.retry": "retry",
+  "api.timeout": "timeout",
+  "pages.home": "home",
+  "pages.mine": "mine"
+}
