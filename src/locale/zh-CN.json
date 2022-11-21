@@ -1,7 +1,11 @@
 {
-  "api.fail": "请求失败",
-  "api.retry": "操作太频繁，请稍后再试",
-  "api.timeout": "登录超时，请重新登录",
-  "pages.home": "首页",
-  "pages.mine": "我的"
+  "api": {
+    "fail": "请求失败",
+    "retry": "操作太频繁，请稍后再试",
+    "timeout": "登录超时，请重新登录"
+  },
+  "pages": {
+    "home": "首页",
+    "mine": "我的"
+  }
 }

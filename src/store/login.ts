@@ -1,23 +1,31 @@
 import { defineStore } from 'pinia';
+import storage from '@/utils/storage';
 
-export const useloginStore = defineStore({
-  id: 'login', // id必填，且需要唯一
+export const useLoginStore = defineStore({
+  id: 'login',
   state: () => {
     return {
-      userName: uni.getStorageSync('userName')
-        ? uni.getStorageSync('userName')
-        : '未登录',
+      token: storage.getStorageSync('token') || null,
+      userInfo: storage.getStorageSync('userInfo') || null,
     };
   },
-  // actions 用来修改 state
   actions: {
-    login(userName: string) {
-      uni.setStorageSync('userName', userName);
-      this.userName = userName;
+    setToken(token: string) {
+      storage.setStorageSync('token', token);
+      this.token = token;
+    },
+    setUserInfo(userInfo: any) {
+      storage.setStorageSync('userInfo', userInfo);
+      this.userInfo = userInfo;
+    },
+    login({ token, userInfo }: { token: string; userInfo: any }) {
+      this.setToken(token);
+      this.setUserInfo(userInfo);
     },
     logout() {
-      uni.clearStorage();
-      this.userName = '已退出登录';
+      storage.clearStorage();
+      this.token = null;
+      this.userInfo = null;
     },
   },
 });

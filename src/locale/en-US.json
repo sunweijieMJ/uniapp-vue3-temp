@@ -1,7 +1,11 @@
 {
-  "api.fail": "fail",
-  "api.retry": "retry",
-  "api.timeout": "timeout",
-  "pages.home": "home",
-  "pages.mine": "mine"
+  "api": {
+    "fail": "fail",
+    "retry": "retry",
+    "timeout": "timeout"
+  },
+  "pages": {
+    "home": "home",
+    "mine": "mine"
+  }
 }
