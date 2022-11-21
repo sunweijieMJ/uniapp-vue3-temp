@@ -47,7 +47,7 @@ class Abstract {
       }
     }
     // 拼接baseURL
-    url = baseURL + url;
+    const joinUrl = baseURL + url;
 
     return new Promise((resolve, reject) => {
       // 请求拦截器
@@ -56,7 +56,7 @@ class Abstract {
       uni.request({
         header: newHeader,
         method,
-        url,
+        url: joinUrl,
         data,
         responseType,
         timeout: this.timeout,

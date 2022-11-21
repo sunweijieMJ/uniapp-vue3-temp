@@ -21,14 +21,14 @@
       {
         "text": "首页",
         "pagePath": "pages/home/index",
-        "iconPath": "src/assets/icon/tabbar_home.png",
-        "selectedIconPath": "src/assets/icon/tabbar_home_selected.png"
+        "iconPath": "static/icon/tabbar_home.png",
+        "selectedIconPath": "static/icon/tabbar_home_selected.png"
       },
       {
         "text": "我的",
         "pagePath": "pages/mine/index",
-        "iconPath": "src/assets/icon/tabbar_mine.png",
-        "selectedIconPath": "src/assets/icon/tabbar_mine_selected.png"
+        "iconPath": "static/icon/tabbar_mine.png",
+        "selectedIconPath": "static/icon/tabbar_mine_selected.png"
       }
     ]
   },
@@ -37,5 +37,11 @@
     "navigationBarTitleText": "uni-app",
     "navigationBarBackgroundColor": "#F8F8F8",
     "backgroundColor": "#F8F8F8"
+  },
+  "easycom": {
+    "autoscan": true,
+    "custom": {
+      "^uni-(.*)": "@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue"
+    }
   }
 }

@@ -2,8 +2,10 @@ export * from './common';
 
 export type ResponseType = UniNamespace.RequestOptions['responseType'];
 
-export interface CustomRequestConfig extends UniNamespace.RequestOptions {
+export interface CustomRequestConfig
+  extends Omit<UniNamespace.RequestOptions, 'url'> {
   baseURL?: string;
+  url?: string;
   urlDict?: string;
 }
 

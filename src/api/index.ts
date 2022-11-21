@@ -1,3 +1,3 @@
-import commonApi from './modules/basic';
+import commonApi from './modules/common';
 
 export { commonApi };

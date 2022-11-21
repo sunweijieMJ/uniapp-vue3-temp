@@ -14,11 +14,11 @@
 |
 ├──── src 源码目录
 | ├── api 接口请求
-| ├── assets 资源目录
 | ├── components 公共组件
 | ├── locale 国际化
 | ├── pages 页面文件
 | ├── plugin 插件
+| ├── static 资源目录
 | ├── store 状态管理
 | ├── types 业务类型
 | ├── utils 工具方法

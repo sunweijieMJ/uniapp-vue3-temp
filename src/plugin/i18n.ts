@@ -3,8 +3,8 @@ import enLocale from '@/locale/en-US.json';
 import zhLocale from '@/locale/zh-CN.json';
 
 const messages = {
-  en: {
-    name: 'en',
+  'en-US': {
+    name: 'en-US',
     ...enLocale,
   },
   'zh-CN': {
@@ -15,7 +15,7 @@ const messages = {
 
 const i18n = createI18n({
   legacy: false,
-  locale: 'en',
+  locale: 'zh-CN',
   messages,
 });
 
