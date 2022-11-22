@@ -4,6 +4,7 @@ module.exports = {
   minWordLength: 4,
   words: ['commitlint', 'dcloudio', 'pinia', 'stylelintrc', 'stylelintignore'],
   ignorePaths: [
+    'src/components/*',
     '**/*.svg',
     '**/*.sh',
     '**/*.conf',

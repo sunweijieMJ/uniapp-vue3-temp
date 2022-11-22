@@ -10,7 +10,7 @@ import i18n from '@/plugin/i18n';
 import storage from '@/utils/storage';
 
 class Abstract {
-  protected baseURL = '';
+  protected baseURL = 'https://demo-bapi-digizen.lianwei.com.cn/';
 
   protected timeout = 60000;
 
@@ -34,7 +34,7 @@ class Abstract {
     const newHeader = {
       showLoading: true,
       token: storage.getStorageSync('token'),
-      'x-language': storage.get('lang'),
+      'x-language': storage.get('curLanguage'),
       ...header,
     };
 
@@ -62,15 +62,6 @@ class Abstract {
         timeout: this.timeout,
         dataType: this.dataType,
         success(response) {
-          if (responseType === 'blob' || response.header?.primitive) {
-            resolve({
-              status: true,
-              message: 'success',
-              data: response?.data,
-              response,
-            });
-            return;
-          }
           // 200:服务端业务处理正常结束
           if (response.statusCode === 200) {
             resolve({

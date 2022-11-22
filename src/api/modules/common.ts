@@ -22,17 +22,17 @@ class Basic extends Abstract {
   }
 
   /**
-   * 个人信息
-   */
-  getCustomerProfile() {
-    return this.getReq({ urlDict: 'Basic.GetCustomerProfile' });
-  }
-
-  /**
    * 微信支付
    */
   wxPay(data: WxPay) {
     return this.postReq({ urlDict: 'Basic.WxPay', data });
+  }
+
+  /**
+   * 验证码
+   */
+  getCaptcha() {
+    return this.getReq({ urlDict: 'Basic.GetCaptcha' });
   }
 }
 

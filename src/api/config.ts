@@ -5,10 +5,10 @@
 
 const urlDict: Record<string, Record<string, string>> = {
   Basic: {
-    WxRegister: 'ecommerce/biz/v1/customerChannel/register', // 微信注册
-    WxLogin: 'ecommerce/biz/v1/customerChannel/login', // 微信登录
-    GetCustomerProfile: 'ecommerce/biz/v1/customerChannel/customerProfile', // 个人信息
-    WxPay: 'v1/order/pay/prepay', // 微信支付
+    WxRegister: 'xxx/register', // 微信注册
+    WxLogin: 'xxx/login', // 微信登录
+    WxPay: 'xxx/pay', // 微信支付
+    GetCaptcha: 'userDomain/admin/v1/user/captcha', // 验证码
   },
 };
 

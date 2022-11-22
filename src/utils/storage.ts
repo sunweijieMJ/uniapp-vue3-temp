@@ -3,12 +3,12 @@
  */
 
 interface TemplateData {
-  environment: string;
+  uniPlatform: string;
   isiPhoneX: boolean;
   statusBarHeight: string;
   titleBarHeight: string;
   navbarHeight: string;
-  lang: string;
+  curLanguage: string;
 }
 
 class StorageApi {
@@ -21,18 +21,18 @@ class StorageApi {
 
   // 储存临时数据
   static templateData: Partial<TemplateData> = {
-    environment: uni.getSystemInfoSync().uniPlatform, // 平台信息
+    uniPlatform: uni.getSystemInfoSync().uniPlatform, // 平台信息
     isiPhoneX: false, // 是否iPhoneX
     statusBarHeight: '', // 顶部状态栏高度
     titleBarHeight: '', // 自定义导航栏高度
     navbarHeight: '', // 导航栏总高度
-    lang: 'zh-CN', // 语言
+    curLanguage: 'zh-CN', // 语言
   };
 
   /**
    * 设置基础类型的数据
-   * @param {string | required} key
-   * @param {any | required} data
+   * @param {string} key
+   * @param {any} data
    */
   set(key: keyof TemplateData, data: any) {
     if (key in StorageApi.templateData) {
@@ -42,7 +42,7 @@ class StorageApi {
 
   /**
    * 获取基础类型的数据
-   * @param {string | required} key
+   * @param {string} key
    */
   get(key: keyof TemplateData) {
     if (key in StorageApi.templateData) {
@@ -52,8 +52,8 @@ class StorageApi {
 
   /**
    * 将数据异步存储在本地缓存中指定的key中
-   * @param {string | required} key
-   * @param {any | required} data
+   * @param {string} key
+   * @param {any} data
    */
   setStorage<T = any>(key: string, data: T) {
     return new Promise<T>((resolve, reject) => {
@@ -77,15 +77,18 @@ class StorageApi {
 
   /**
    * 将数据同步存储在本地缓存中指定的key中
-   * @param {string | required} key
+   * @param {string} key
    */
   setStorageSync<T = any>(key: string, data: T) {
-    return uni.setStorageSync(key, data);
+    if (StorageApi.storageKey.includes(key)) {
+      return uni.setStorageSync(key, data);
+    }
+    console.error('setStorageSync:err');
   }
 
   /**
    * 从本地缓存中异步获取指定key的内容
-   * @param {string | required} key
+   * @param {string} key
    */
   getStorage(key: string) {
     return new Promise<any>((resolve, reject) => {
@@ -108,10 +111,13 @@ class StorageApi {
 
   /**
    * 异步获取当前 storage 的相关信息
-   * @param {string | required} key
+   * @param {string} key
    */
   getStorageSync(key: string) {
-    return uni.getStorageSync(key);
+    if (StorageApi.storageKey.includes(key)) {
+      return uni.getStorageSync(key);
+    }
+    console.error('getStorageSync:err');
   }
 
   /**
@@ -139,7 +145,7 @@ class StorageApi {
 
   /**
    * 从本地缓存中异步移除指定 key
-   * @param {string | required} key
+   * @param {string} key
    */
   removeStorage(key: string) {
     return new Promise((resolve, reject) => {
@@ -162,10 +168,13 @@ class StorageApi {
 
   /**
    * 从本地缓存中同步移除指定 key
-   * @param {string | required} key
+   * @param {string} key
    */
   removeStorageSync(key: string) {
-    return uni.removeStorageSync(key);
+    if (StorageApi.storageKey.includes(key)) {
+      return uni.removeStorageSync(key);
+    }
+    console.error('removeStorageSync:err');
   }
 
   /**

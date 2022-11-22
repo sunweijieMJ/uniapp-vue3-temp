@@ -100,6 +100,12 @@ module.exports = defineConfig({
       },
     },
     {
+      files: ['*.vue'],
+      rules: {
+        'vue/no-multiple-template-root': 'off',
+      },
+    },
+    {
       files: ['*.js', '*.jsx', '*.ts', '*.tsx', '*.vue'],
       rules: {
         'import/extensions': [
