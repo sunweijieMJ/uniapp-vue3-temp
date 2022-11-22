@@ -2,15 +2,6 @@
  * 存储封装对外提供统一的方法
  */
 
-interface TemplateData {
-  uniPlatform: string;
-  isiPhoneX: boolean;
-  statusBarHeight: string;
-  titleBarHeight: string;
-  navbarHeight: string;
-  curLanguage: string;
-}
-
 class StorageApi {
   // 存储半永久数据
   static storageKey = [
@@ -20,12 +11,9 @@ class StorageApi {
   ];
 
   // 储存临时数据
-  static templateData: Partial<TemplateData> = {
+  static templateData = {
     uniPlatform: uni.getSystemInfoSync().uniPlatform, // 平台信息
     isiPhoneX: false, // 是否iPhoneX
-    statusBarHeight: '', // 顶部状态栏高度
-    titleBarHeight: '', // 自定义导航栏高度
-    navbarHeight: '', // 导航栏总高度
     curLanguage: 'zh-CN', // 语言
   };
 
@@ -34,9 +22,14 @@ class StorageApi {
    * @param {string} key
    * @param {any} data
    */
-  set(key: keyof TemplateData, data: any) {
+  set<T extends keyof typeof StorageApi.templateData>(
+    key: T,
+    data: typeof StorageApi.templateData[T]
+  ) {
     if (key in StorageApi.templateData) {
       StorageApi.templateData[key] = data;
+    } else {
+      console.error('set:err');
     }
   }
 
@@ -44,10 +37,11 @@ class StorageApi {
    * 获取基础类型的数据
    * @param {string} key
    */
-  get(key: keyof TemplateData) {
+  get<T extends keyof typeof StorageApi.templateData>(key: T) {
     if (key in StorageApi.templateData) {
       return StorageApi.templateData[key];
     }
+    console.error('get:err');
   }
 
   /**

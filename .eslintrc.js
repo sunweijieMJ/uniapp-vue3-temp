@@ -36,7 +36,6 @@ const rules = {
   'no-else-return': ['error', { allowElseIf: true }], // 禁止在else之前返回
   'consistent-return': 'off', // 要求return语句一致返回
   'no-restricted-syntax': ['error', 'LabeledStatement', 'WithStatement'], // 禁止指定的语法
-  'import/no-unresolved': ['error', { ignore: ['.css$'] }], // 忽略.css后缀名检查
   'lines-between-class-members': [
     'error',
     'always',
