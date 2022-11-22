@@ -6,9 +6,10 @@ import store from './store';
 
 export function createApp() {
   const app = createSSRApp(App);
-  app.use(dayjs);
+
   app.use(i18n);
   app.use(store);
+  app.use(dayjs);
 
   return {
     app,

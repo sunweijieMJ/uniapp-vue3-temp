@@ -10,6 +10,7 @@ module.exports = {
     'stylelintignore',
     'longpress',
     'mediatype',
+    'requied',
   ],
   ignorePaths: [
     '**/*.svg',
