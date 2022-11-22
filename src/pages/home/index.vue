@@ -33,3 +33,8 @@ onMounted(() => {
   console.log(dayjs('2022-11-22 14:30:22').fromNow());
 });
 </script>
+<style lang="scss" scoped>
+.home {
+  background-color: $mainPink;
+}
+</style>

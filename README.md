@@ -18,6 +18,7 @@
 | ├── locale 国际化
 | ├── pages 页面文件
 | ├── plugin 插件
+| ├── scss 全局scss
 | ├── static 资源目录
 | ├── store 状态管理
 | ├── types 业务类型
