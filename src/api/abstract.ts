@@ -18,7 +18,7 @@ class Abstract {
 
   protected responseType = 'text';
 
-  protected header: Record<string, any> = {
+  protected header = {
     ContentType: 'application/json',
   };
 

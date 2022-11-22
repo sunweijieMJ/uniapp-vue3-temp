@@ -72,6 +72,7 @@ module.exports = defineConfig({
     browser: true,
   },
   globals: {
+    uni: true,
     process: true,
   },
   parser: 'vue-eslint-parser',

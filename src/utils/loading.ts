@@ -1,9 +1,11 @@
+import i18n from '@/plugin/i18n';
+
 // 请求计数
 let requestCount = 0;
 
 const startLoading = () => {
   uni.showLoading({
-    title: '加载中',
+    title: i18n.global.t('api.loading'),
     mask: true,
   });
 };

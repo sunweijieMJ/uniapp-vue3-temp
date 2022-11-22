@@ -1,7 +1,7 @@
 <template>
   <NavBar></NavBar>
   <view class="home">
-    {{ i18n.t('pages.home') }}
+    {{ i18n.t('home.title') }}
     <CustomImage :src="captchaCode"></CustomImage>
     <button @click="getCaptcha">验证码</button>
     <uni-badge text="1"></uni-badge>

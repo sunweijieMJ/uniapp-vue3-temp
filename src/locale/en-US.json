@@ -1,11 +1,14 @@
 {
   "api": {
+    "loading": "loading",
     "fail": "fail",
     "retry": "retry",
     "timeout": "timeout"
   },
-  "pages": {
-    "home": "home",
-    "mine": "mine"
+  "home": {
+    "title": "home"
+  },
+  "mine": {
+    "title": "mine"
   }
 }

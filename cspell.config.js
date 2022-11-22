@@ -2,9 +2,16 @@ module.exports = {
   version: '0.1',
   language: 'en',
   minWordLength: 4,
-  words: ['commitlint', 'dcloudio', 'pinia', 'stylelintrc', 'stylelintignore'],
+  words: [
+    'commitlint',
+    'dcloudio',
+    'pinia',
+    'stylelintrc',
+    'stylelintignore',
+    'longpress',
+    'mediatype',
+  ],
   ignorePaths: [
-    'src/components/*',
     '**/*.svg',
     '**/*.sh',
     '**/*.conf',
