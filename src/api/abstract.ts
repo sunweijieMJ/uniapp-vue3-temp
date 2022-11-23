@@ -10,7 +10,7 @@ import i18n from '@/plugin/i18n';
 import storage from '@/utils/storage';
 
 class Abstract {
-  protected baseURL = 'https://demo-bapi-digizen.lianwei.com.cn/';
+  protected baseURL = '';
 
   protected timeout = 60000;
 
