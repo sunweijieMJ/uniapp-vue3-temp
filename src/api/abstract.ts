@@ -26,7 +26,7 @@ class Abstract {
     'content-type': 'application/json',
   };
 
-  private apiAxios({
+  private requestAll({
     baseURL = this.baseURL,
     header,
     method,
@@ -104,7 +104,7 @@ class Abstract {
     data,
     responseType,
   }: CustomRequestConfig) {
-    return this.apiAxios({
+    return this.requestAll({
       baseURL,
       header,
       method: 'GET',
@@ -126,7 +126,7 @@ class Abstract {
     data,
     responseType,
   }: CustomRequestConfig) {
-    return this.apiAxios({
+    return this.requestAll({
       baseURL,
       header,
       method: 'POST',
@@ -148,7 +148,7 @@ class Abstract {
     data,
     responseType,
   }: CustomRequestConfig) {
-    return this.apiAxios({
+    return this.requestAll({
       baseURL,
       header,
       method: 'PUT',
@@ -170,7 +170,7 @@ class Abstract {
     data,
     responseType,
   }: CustomRequestConfig) {
-    return this.apiAxios({
+    return this.requestAll({
       baseURL,
       header,
       method: 'DELETE',
