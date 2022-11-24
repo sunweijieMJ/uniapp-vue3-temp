@@ -1,7 +1,7 @@
 /**
  * 基础 API 集合类
  * 集成Abstract
- * @date 2020-5-29
+ * @date 2021-11-20
  */
 import Abstract from '../abstract';
 import type { WxLogin, WxPay, WxRegister } from '../types';

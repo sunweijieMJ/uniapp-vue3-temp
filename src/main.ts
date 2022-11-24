@@ -8,8 +8,8 @@ export function createApp() {
   const app = createSSRApp(App);
 
   app.use(i18n);
-  app.use(store);
   app.use(dayjs);
+  app.use(store);
 
   return {
     app,

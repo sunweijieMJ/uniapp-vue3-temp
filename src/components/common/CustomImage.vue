@@ -51,12 +51,12 @@ export default defineComponent({
   emits: ['load', 'error'],
   setup(props, { emit }) {
     // 图片加载成功
-    const load = (evt: any) => {
+    const load = (evt: Event) => {
       emit('load', evt);
     };
 
     // 图片加载失败
-    const error = (evt: any) => {
+    const error = (evt: Event) => {
       emit('error', evt);
     };
 

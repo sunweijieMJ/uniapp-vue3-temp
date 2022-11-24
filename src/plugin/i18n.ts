@@ -14,9 +14,11 @@ const messages = {
   },
 };
 
+// 使用本地化语言
+const curLanguage = storage.get('curLanguage');
 const i18n = createI18n({
   legacy: false,
-  locale: storage.get('curLanguage'),
+  locale: curLanguage,
   messages,
 });
 

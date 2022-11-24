@@ -9,7 +9,14 @@ export interface CustomRequestConfig
   urlDict?: string;
 }
 
-export interface CustomResponseConfig<T = any> {
+export type CustomRequestHeader = UniNamespace.RequestOptions['header'] &
+  Partial<{
+    token: string;
+    'x-language': string;
+    showLoading: boolean;
+  }>;
+
+export interface CustomResponse<T = any> {
   readonly status: boolean;
   readonly message: string;
   data: T;

@@ -4,8 +4,10 @@ import {
 } from '@/utils/loading';
 
 const interceptor = {
-  invoke() {
-    showFullScreenLoading();
+  invoke(args: any) {
+    if (args?.header?.showLoading) {
+      showFullScreenLoading();
+    }
   },
   success() {
     //

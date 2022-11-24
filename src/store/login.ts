@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia';
+import { UserInfo } from '@/interface';
 import storage from '@/utils/storage';
 
 export const useLoginStore = defineStore({
@@ -14,11 +15,11 @@ export const useLoginStore = defineStore({
       storage.setStorageSync('token', token);
       this.token = token;
     },
-    setUserInfo(userInfo: any) {
+    setUserInfo(userInfo: UserInfo) {
       storage.setStorageSync('userInfo', userInfo);
       this.userInfo = userInfo;
     },
-    login({ token, userInfo }: { token: string; userInfo: any }) {
+    login({ token, userInfo }: { token: string; userInfo: UserInfo }) {
       this.setToken(token);
       this.setUserInfo(userInfo);
     },

@@ -1,11 +1,15 @@
 /**
- * axios基础构建
- * @date 2021-4-9
+ * api基础构建
+ * @date 2021-11-20
  */
 
 import translUrlDict from './config';
 import interceptor from './intercept';
-import type { CustomRequestConfig, CustomResponseConfig } from './types';
+import type {
+  CustomRequestConfig,
+  CustomRequestHeader,
+  CustomResponse,
+} from './types';
 import i18n from '@/plugin/i18n';
 import storage from '@/utils/storage';
 
@@ -19,7 +23,7 @@ class Abstract {
   protected responseType = 'text';
 
   protected header = {
-    ContentType: 'application/json',
+    'content-type': 'application/json',
   };
 
   private apiAxios({
@@ -30,8 +34,8 @@ class Abstract {
     urlDict,
     data,
     responseType,
-  }: CustomRequestConfig): Promise<CustomResponseConfig> {
-    const newHeader = {
+  }: CustomRequestConfig): Promise<CustomResponse> {
+    const newHeader: CustomRequestHeader = {
       showLoading: true,
       token: storage.getStorageSync('token'),
       'x-language': storage.get('curLanguage'),

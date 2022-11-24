@@ -39,14 +39,14 @@ const switchTab = (url: string) => {
 /**
  * 保留当前页面，跳转到应用内的某个页面，使用uni.navigateBack可以返回到原页面
  * @param {string} url
- * @param {Record<string, any>} data
+ * @param {Record<string, string>} data
  * @param {UniNamespace.NavigateToOptions['animationType']} animationType
  * @param {UniNamespace.NavigateToOptions['animationDuration']} animationDuration
  * @param {UniNamespace.NavigateToOptions['events']} events
  */
 const navigateTo = (
   url: string,
-  data?: Record<string, any>,
+  data?: Record<string, string>,
   animationType?: UniNamespace.NavigateToOptions['animationType'],
   animationDuration?: UniNamespace.NavigateToOptions['animationDuration'],
   events?: UniNamespace.NavigateToOptions['events']
@@ -70,9 +70,9 @@ const navigateTo = (
 /**
  * 关闭当前页面，跳转到应用内的某个页面
  * @param {string} url
- * @param {Record<string, any>} data
+ * @param {Record<string, string>} data
  */
-const redirectTo = (url: string, data?: Record<string, any>) => {
+const redirectTo = (url: string, data?: Record<string, string>) => {
   return new Promise((resolve, reject) => {
     uni.redirectTo({
       url: data ? `${url}?${queryConcat(data)}` : url,
