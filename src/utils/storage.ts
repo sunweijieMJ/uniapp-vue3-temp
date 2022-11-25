@@ -6,7 +6,6 @@ class StorageApi {
   // 存储半永久数据
   static storageKey = [
     'token', // token认证
-    'openId', // openId
     'userInfo', // userInfo
   ];
 

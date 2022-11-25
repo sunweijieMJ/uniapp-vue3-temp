@@ -2,7 +2,6 @@
  * api基础构建
  * @date 2021-11-20
  */
-
 import translUrlDict from './config';
 import interceptor from './intercept';
 import type {

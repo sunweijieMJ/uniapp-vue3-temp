@@ -20,13 +20,3 @@ export interface WxLogin {
   jsCode: string;
   registerMethod: string;
 }
-
-/**
- * 微信支付接口
- */
-export interface WxPay {
-  orderId: string;
-  payChannel: string;
-  tradeType: string;
-  openId: string;
-}

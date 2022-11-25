@@ -12,58 +12,56 @@
     @error="error"
   ></image>
 </template>
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script lang="ts" setup>
+import { defineComponent, defineEmits, defineProps } from 'vue';
 
-export default defineComponent({
+defineComponent({
   name: 'CustomImage',
-  props: {
-    src: {
-      type: String,
-      default:
-        'https://devops01.oss-cn-shanghai.aliyuncs.com/staticImg/image_null.jpg',
-    },
-    mode: {
-      type: String,
-      default: 'scaleToFill',
-    },
-    lazyLoad: {
-      type: Boolean,
-      default: false,
-    },
-    fadeShow: {
-      type: Boolean,
-      default: true,
-    },
-    webp: {
-      type: Boolean,
-      default: false,
-    },
-    showMenuByLongpress: {
-      type: Boolean,
-      default: false,
-    },
-    draggable: {
-      type: Boolean,
-      default: true,
-    },
+});
+
+defineProps({
+  src: {
+    type: String,
+    required: true,
   },
-  emits: ['load', 'error'],
-  setup(props, { emit }) {
-    // 图片加载成功
-    const load = (evt: Event) => {
-      emit('load', evt);
-    };
-
-    // 图片加载失败
-    const error = (evt: Event) => {
-      emit('error', evt);
-    };
-
-    return {
-      load,
-      error,
-    };
+  mode: {
+    type: String,
+    default: 'scaleToFill',
+  },
+  lazyLoad: {
+    type: Boolean,
+    default: false,
+  },
+  fadeShow: {
+    type: Boolean,
+    default: true,
+  },
+  webp: {
+    type: Boolean,
+    default: false,
+  },
+  showMenuByLongpress: {
+    type: Boolean,
+    default: false,
+  },
+  draggable: {
+    type: Boolean,
+    default: true,
   },
 });
+
+const emit = defineEmits<{
+  (e: 'load', evt: Event): void;
+  (e: 'error', evt: Event): void;
+}>();
+
+// 图片加载成功
+const load = (evt: Event) => {
+  emit('load', evt);
+};
+
+// 图片加载失败
+const error = (evt: Event) => {
+  emit('error', evt);
+};
 </script>

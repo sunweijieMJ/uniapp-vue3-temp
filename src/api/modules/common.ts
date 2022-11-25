@@ -4,7 +4,7 @@
  * @date 2021-11-20
  */
 import Abstract from '../abstract';
-import type { WxLogin, WxPay, WxRegister } from '../types';
+import type { WxLogin, WxRegister } from '../types';
 
 class Basic extends Abstract {
   /**
@@ -19,13 +19,6 @@ class Basic extends Abstract {
    */
   wxLogin(data: WxLogin) {
     return this.postReq({ urlDict: 'Basic.WxLogin', data });
-  }
-
-  /**
-   * 微信支付
-   */
-  wxPay(data: WxPay) {
-    return this.postReq({ urlDict: 'Basic.WxPay', data });
   }
 
   /**

@@ -7,7 +7,6 @@ const urlDict: Record<string, Record<string, string>> = {
   Basic: {
     WxRegister: 'xxx/register', // 微信注册
     WxLogin: 'xxx/login', // 微信登录
-    WxPay: 'xxx/pay', // 微信支付
     GetCaptcha: 'userDomain/admin/v1/user/captcha', // 验证码
   },
 };
