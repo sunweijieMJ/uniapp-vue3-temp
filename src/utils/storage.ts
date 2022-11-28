@@ -3,13 +3,17 @@
  */
 
 class StorageApi {
-  // 存储半永久数据
+  /**
+   * 存储半永久数据
+   */
   static storageKey = [
     'token', // token认证
     'userInfo', // userInfo
   ];
 
-  // 储存临时数据
+  /**
+   * 储存临时数据
+   */
   static templateData = {
     uniPlatform: uni.getSystemInfoSync().uniPlatform, // 平台信息
     isiPhoneX: false, // 是否iPhoneX

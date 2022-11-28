@@ -13,7 +13,7 @@
   ></image>
 </template>
 <script lang="ts" setup>
-import { defineComponent, defineEmits, defineProps } from 'vue';
+import { defineComponent } from 'vue';
 
 defineComponent({
   name: 'CustomImage',

@@ -3,14 +3,20 @@
     {
       "path": "pages/home/index",
       "style": {
-        "navigationBarTitleText": "首页",
-        "navigationStyle": "custom"
+        "navigationBarTitleText": "首页"
       }
     },
     {
       "path": "pages/mine/index",
       "style": {
         "navigationBarTitleText": "我的"
+      }
+    },
+    {
+      "path": "pages/detail/index",
+      "style": {
+        "navigationBarTitleText": "详情",
+        "navigationStyle": "custom"
       }
     }
   ],
