@@ -1,5 +1,5 @@
 <template>
-  <NavBar></NavBar>
+  <NavBar :title="i18n.t('detail.title')"></NavBar>
   <view class="detail">
     <uni-badge text="1"></uni-badge>
   </view>
@@ -7,7 +7,10 @@
 <script setup lang="ts">
 import dayjs from 'dayjs';
 import { defineComponent, onMounted } from 'vue';
+import { useI18n } from 'vue-i18n';
 import NavBar from '@/components/business/NavBar.vue';
+
+const i18n = useI18n();
 
 defineComponent({
   name: 'HomePage',

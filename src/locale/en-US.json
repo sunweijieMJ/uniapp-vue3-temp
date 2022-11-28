@@ -10,5 +10,8 @@
   },
   "mine": {
     "title": "mine"
+  },
+  "detail": {
+    "title": "details"
   }
 }

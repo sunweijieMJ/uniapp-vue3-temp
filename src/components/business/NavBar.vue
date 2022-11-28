@@ -63,7 +63,7 @@ defineProps({
   },
   statusBar: {
     type: Boolean,
-    default: false,
+    default: true,
   },
   shadow: {
     type: Boolean,
