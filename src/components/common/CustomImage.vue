@@ -3,10 +3,7 @@
     class="custom-image"
     :src="src"
     :mode="mode"
-    :lazy-load="lazyLoad"
     :fade-show="fadeShow"
-    :webp="webp"
-    :show-menu-by-longpress="showMenuByLongpress"
     :draggable="draggable"
     @load="load"
     @error="error"
@@ -20,30 +17,30 @@ defineComponent({
 });
 
 defineProps({
+  /**
+   * 图片资源地址
+   */
   src: {
     type: String,
     required: true,
   },
+  /**
+   * 图片裁剪、缩放的模式
+   */
   mode: {
     type: String,
     default: 'scaleToFill',
   },
-  lazyLoad: {
-    type: Boolean,
-    default: false,
-  },
+  /**
+   * 图片显示动画效果
+   */
   fadeShow: {
     type: Boolean,
     default: true,
   },
-  webp: {
-    type: Boolean,
-    default: false,
-  },
-  showMenuByLongpress: {
-    type: Boolean,
-    default: false,
-  },
+  /**
+   * 是否能拖动图片
+   */
   draggable: {
     type: Boolean,
     default: true,
@@ -55,12 +52,18 @@ const emit = defineEmits<{
   (e: 'error', evt: Event): void;
 }>();
 
-// 图片加载成功
+/**
+ * 当图片载入完毕时，发布到 AppService 的事件名，事件对象event.detail = {height:'图片高度px', width:'图片宽度px'}
+ * @param evt
+ */
 const load = (evt: Event) => {
   emit('load', evt);
 };
 
-// 图片加载失败
+/**
+ * 当错误发生时，发布到 AppService 的事件名，事件对象event.detail = {errMsg: 'something wrong'}
+ * @param evt
+ */
 const error = (evt: Event) => {
   emit('error', evt);
 };
