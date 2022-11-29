@@ -22,8 +22,8 @@ class StorageApi {
 
   /**
    * 设置基础类型的数据
-   * @param {string} key
-   * @param {any} data
+   * @param key
+   * @param data
    */
   set<T extends keyof typeof StorageApi.templateData>(
     key: T,
@@ -38,7 +38,7 @@ class StorageApi {
 
   /**
    * 获取基础类型的数据
-   * @param {string} key
+   * @param key
    */
   get<T extends keyof typeof StorageApi.templateData>(key: T) {
     if (key in StorageApi.templateData) {
@@ -49,8 +49,8 @@ class StorageApi {
 
   /**
    * 将数据异步存储在本地缓存中指定的key中
-   * @param {string} key
-   * @param {any} data
+   * @param key
+   * @param data
    */
   setStorage<T = any>(key: string, data: T) {
     return new Promise<T>((resolve, reject) => {
@@ -74,7 +74,7 @@ class StorageApi {
 
   /**
    * 将数据同步存储在本地缓存中指定的key中
-   * @param {string} key
+   * @param key
    */
   setStorageSync<T = any>(key: string, data: T) {
     if (StorageApi.storageKey.includes(key)) {
@@ -85,7 +85,7 @@ class StorageApi {
 
   /**
    * 从本地缓存中异步获取指定key的内容
-   * @param {string} key
+   * @param key
    */
   getStorage(key: string) {
     return new Promise<any>((resolve, reject) => {
@@ -108,7 +108,7 @@ class StorageApi {
 
   /**
    * 异步获取当前 storage 的相关信息
-   * @param {string} key
+   * @param key
    */
   getStorageSync(key: string) {
     if (StorageApi.storageKey.includes(key)) {
@@ -142,7 +142,7 @@ class StorageApi {
 
   /**
    * 从本地缓存中异步移除指定 key
-   * @param {string} key
+   * @param key
    */
   removeStorage(key: string) {
     return new Promise((resolve, reject) => {
@@ -165,7 +165,7 @@ class StorageApi {
 
   /**
    * 从本地缓存中同步移除指定 key
-   * @param {string} key
+   * @param key
    */
   removeStorageSync(key: string) {
     if (StorageApi.storageKey.includes(key)) {

@@ -1,6 +1,6 @@
 /**
  * @description 解析url
- * @param {string} href
+ * @param href
  */
 const queryParse = (href: string): Record<string, string> => {
   if (!href) return {};
@@ -17,7 +17,7 @@ const queryParse = (href: string): Record<string, string> => {
 
 /**
  * @description url拼接
- * @param {Record<string, string>} query
+ * @param query
  */
 const queryConcat = (query: Record<string, string>): string => {
   let url = '';
@@ -30,7 +30,7 @@ const queryConcat = (query: Record<string, string>): string => {
 
 /**
  * @description 解析小程序二维码
- * @param {Record<string, string>} options
+ * @param options
  */
 const parseCode = (options: Record<string, string>) => {
   let id: string | undefined = '';
