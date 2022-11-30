@@ -20,81 +20,50 @@
   ></video>
 </template>
 <script lang="ts" setup>
-import { defineComponent, PropType } from 'vue';
+import { defineComponent } from 'vue';
 
 type ObjectFit = 'contain' | 'fill' | 'cover';
 
-defineComponent({
-  name: 'CustomVideo',
-});
-
-defineProps({
+interface IProps {
   /**
    * 要播放视频的资源地址
    */
-  src: {
-    type: String,
-    required: true,
-  },
+  src: string;
   /**
    * 是否自动播放
    */
-  autoplay: {
-    type: Boolean,
-    default: false,
-  },
+  autoplay?: boolean;
   /**
    * 是否循环播放
    */
-  loop: {
-    type: Boolean,
-    default: false,
-  },
+  loop?: boolean;
   /**
    * 是否静音播放
    */
-  muted: {
-    type: Boolean,
-    default: false,
-  },
+  muted?: boolean;
   /**
    * 指定视频初始播放位置，单位为秒（s）
    */
-  initialTime: {
-    type: Number,
-    default: 0,
-  },
+  initialTime?: number;
   /**
    * 指定视频时长，单位为秒（s）
    */
-  duration: {
-    type: Number,
-    default: 0,
-  },
+  duration?: number;
   /**
    * 是否显示默认播放控件（播放/暂停按钮、播放进度、时间）
    */
-  controls: {
-    type: Boolean,
-    default: true,
-  },
+  controls?: boolean;
   /**
    * 当视频大小与 video 容器大小不一致时，视频的表现形式。contain：包含，fill：填充，cover：覆盖
    */
-  objectFit: {
-    type: String as PropType<ObjectFit>,
-    default: 'contain',
-  },
+  objectFit?: ObjectFit;
   /**
    * 视频封面的图片网络资源地址，如果 controls 属性值为 false 则设置 poster 无效
    */
-  poster: {
-    type: String,
-    default: '',
-  },
-});
+  poster?: string;
+}
 
-const emit = defineEmits<{
+interface IEmits {
   (e: 'play', evt: Event): void;
   (e: 'pause', evt: Event): void;
   (e: 'ended', evt: Event): void;
@@ -102,14 +71,31 @@ const emit = defineEmits<{
   (e: 'fullscreenchange', evt: Event): void;
   (e: 'waiting', evt: Event): void;
   (e: 'error', evt: Event): void;
-}>();
+}
+
+defineComponent({
+  name: 'CustomVideo',
+});
+
+withDefaults(defineProps<IProps>(), {
+  autoplay: false,
+  loop: false,
+  muted: false,
+  initialTime: 0,
+  duration: 0,
+  controls: true,
+  objectFit: 'contain',
+  poster: '',
+});
+
+const emits = defineEmits<IEmits>();
 
 /**
  * 当开始/继续播放时触发play事件
  * @param evt
  */
 const play = (evt: Event) => {
-  emit('play', evt);
+  emits('play', evt);
 };
 
 /**
@@ -117,7 +103,7 @@ const play = (evt: Event) => {
  * @param evt
  */
 const pause = (evt: Event) => {
-  emit('pause', evt);
+  emits('pause', evt);
 };
 
 /**
@@ -125,7 +111,7 @@ const pause = (evt: Event) => {
  * @param evt
  */
 const ended = (evt: Event) => {
-  emit('ended', evt);
+  emits('ended', evt);
 };
 
 /**
@@ -133,7 +119,7 @@ const ended = (evt: Event) => {
  * @param evt
  */
 const timeupdate = (evt: Event) => {
-  emit('timeupdate', evt);
+  emits('timeupdate', evt);
 };
 
 /**
@@ -141,7 +127,7 @@ const timeupdate = (evt: Event) => {
  * @param evt
  */
 const fullscreenchange = (evt: Event) => {
-  emit('fullscreenchange', evt);
+  emits('fullscreenchange', evt);
 };
 
 /**
@@ -149,7 +135,7 @@ const fullscreenchange = (evt: Event) => {
  * @param evt
  */
 const waiting = (evt: Event) => {
-  emit('waiting', evt);
+  emits('waiting', evt);
 };
 
 /**
@@ -157,6 +143,6 @@ const waiting = (evt: Event) => {
  * @param evt
  */
 const error = (evt: Event) => {
-  emit('error', evt);
+  emits('error', evt);
 };
 </script>
