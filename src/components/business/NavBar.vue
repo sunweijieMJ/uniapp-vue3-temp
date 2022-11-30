@@ -119,14 +119,13 @@ withDefaults(defineProps<IProps>(), {
   stat: '120rpx',
 });
 
-const emits = defineEmits<IEmits>();
+defineEmits<IEmits>();
 
 /**
  * 左侧按钮点击时触发
  */
 const clickLeft = () => {
   navigateBack();
-  emits('clickLeft');
 };
 
 /**
@@ -134,6 +133,5 @@ const clickLeft = () => {
  */
 const clickRight = () => {
   reLaunch('/pages/home/index');
-  emits('clickRight');
 };
 </script>

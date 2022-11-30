@@ -73,6 +73,7 @@ module.exports = defineConfig({
   },
   globals: {
     uni: true,
+    getCurrentPages: true,
     process: true,
   },
   parser: 'vue-eslint-parser',

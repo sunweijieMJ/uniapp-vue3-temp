@@ -5,6 +5,7 @@
   </view>
 </template>
 <script setup lang="ts">
+import { onLoad } from '@dcloudio/uni-app';
 import dayjs from 'dayjs';
 import { defineComponent, onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
@@ -14,6 +15,10 @@ const i18n = useI18n();
 
 defineComponent({
   name: 'HomePage',
+});
+
+onLoad((options) => {
+  console.log(options);
 });
 
 onMounted(() => {
