@@ -5,12 +5,12 @@ module.exports = {
   words: [
     'commitlint',
     'dcloudio',
-    'pinia',
-    'stylelintrc',
-    'stylelintignore',
     'longpress',
     'mediatype',
+    'pinia',
     'requied',
+    'stylelintrc',
+    'stylelintignore',
   ],
   ignorePaths: [
     '**/*.svg',
@@ -25,7 +25,6 @@ module.exports = {
     '**/*.ogg',
     '**/*.yml',
     '**/*.yaml',
-    'README.md',
     '.gitignore',
     '.prettierrc',
     '.prettierignore',
@@ -33,5 +32,6 @@ module.exports = {
     '.eslintignore',
     '.stylelintrc.js',
     '.stylelintignore',
+    'README.md',
   ],
 };
